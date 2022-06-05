@@ -1,0 +1,58 @@
+.card {
+  position: relative;
+  display: flex;
+  flex: 0 1 25%;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 220px;
+  padding: 5px 20px 35px 20px;
+  border: 1px solid #F3F3F3;
+  border-radius: 40px;
+  margin: 0 15px 40px 15px;
+  transition: 0.2s ease-in-out;
+
+  &:hover {
+    box-shadow: 0 20px 35px rgba(0, 0, 0, 0.08);
+    transform: translateY(-5px);
+  }
+
+  .favorite {
+    position: absolute;
+    cursor: pointer;
+    top: 15px;
+    left: 25px;
+
+  }
+
+  h5 {
+    font-weight: 400;
+    font-size: 14px;
+  }
+
+  .cardFooter {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .total {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .price {
+    font-size: 12px;
+    opacity: 0.5;
+    text-transform: uppercase;
+  }
+
+  img{
+    cursor: pointer;
+  }
+
+  .cost {
+    font-size: 14px;
+  }
+}
