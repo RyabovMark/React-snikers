@@ -6,32 +6,37 @@ header {
   border-bottom: 1px solid #dfdfdf;
   padding: 40px;
 }
+a {
+ display: flex;
+  justify-content: space-between;
+  text-decoration: none;
+  color: #000000;
 
-.headerInfo {
-  div {
-    margin-left: 20px;
+  .headerInfo {
+    div {
+      margin-left: 20px;
+
+      h3 {
+        margin: 0;
+      }
+
+      p {
+        margin: 0;
+        opacity: 0.5;
+      }
+    }
+
+  }
+
+  .headerInfo {
+    display: flex;
+    align-items: center;
 
     h3 {
-      margin: 0;
-    }
-
-    p {
-      margin: 0;
-      opacity: 0.5;
+      text-transform: uppercase;
     }
   }
-
 }
-
-.headerInfo {
-  display: flex;
-  align-items: center;
-
-  h3 {
-    text-transform: uppercase;
-  }
-}
-
 .headerTotal {
   display: flex;
   align-items: center;
