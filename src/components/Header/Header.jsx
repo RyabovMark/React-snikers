@@ -1,12 +1,13 @@
 import React from 'react';
 import './Header.scss';
 import {Link} from "react-router-dom";
+import priceTab from "../Card/Card";
 
 
 function Header(props) {
   return (
     <header>
-      <Link to="/home">
+      <Link to="/">
         <img alt={'logo'} width={40} height={40} src='/img/logo.png'/>
         <div className='headerInfo'>
           <div>
@@ -28,6 +29,7 @@ function Header(props) {
           </Link>
         </li>
         <li>
+          <Link to="/orders"/>
           <img alt={'userIcon'} width={20} height={20} src='/img/user.svg'/>
         </li>
       </ul>

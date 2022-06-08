@@ -1,15 +1,46 @@
 import Card from "../Card/Card";
 import React from 'react';
 
-
 function Home({
                 items,
+                favorites,
+                cartItems,
                 searchValue,
                 onChangeSearchInput,
                 setSearchValue,
                 onAddToFavorites,
-                onAddToCart
+                onAddToCart,
+                isLoading,
               }) {
+
+  const renderItems = () => {
+    const filteredItems = items.filter(item =>
+      item.name
+        .toLowerCase()
+        .includes(searchValue.toLowerCase()));
+    return (
+      isLoading ? Array(10).fill({}) : filteredItems)
+      // filteredItems
+      .map((item,index) => (
+          <
+            Card
+            key={item.key||index}
+            id={item.key}
+            url={item.imageURL}
+            name={item.name}
+            price={item.price}
+            added={cartItems.some(obj => obj.id === item.key)}
+            favorited={favorites.some(obj => obj.id === item.key)}
+            onClickFavorite={(obj) => onAddToFavorites(obj)}
+            onClickPlus={(obj) => onAddToCart(obj)}
+            loading={isLoading}
+          />
+
+        )
+      );
+  }
+
+
   return (
     <div className="content">
       <div className="information">
@@ -25,13 +56,7 @@ function Home({
         </div>
       </div>
       <div className="sneakers">
-        {items.filter(item => item.name.toLowerCase().includes(searchValue.toLowerCase())).map((item) => (
-          <Card url={item.imageURL}
-                name={item.name}
-                price={item.price}
-                onClickFavorite={(obj) => onAddToFavorites(obj)}
-                onClickPlus={(obj) => onAddToCart(obj)}
-          />))}
+        {renderItems()}
       </div>
     </div>
   );
