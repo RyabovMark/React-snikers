@@ -1,6 +1,7 @@
-import React from "react";
+import React, {useContext} from "react";
 import ContentLoader from "react-content-loader";
 import "./Card.scss";
+import {AppContext} from "../../App";
 
 function priceTab(price) {
   const strFrm = new Intl.NumberFormat('ru-Ru').format(price);
@@ -8,29 +9,27 @@ function priceTab(price) {
 }
 
 function Card({
+                item,
                 id,
                 url,
                 name,
                 price,
-                onClickFavorite,
-                onClickPlus,
-                favorited = false,
-                added = false,
-                loading=false,
+                loading = false,
               }) {
 
-  const [isAdded, setIsAdded] = React.useState(added);
-  const [isFavorite, setIsFavorite] = React.useState(favorited);
+  const {isAddedToCard} = useContext(AppContext);
+  const {isAddedToFav} = useContext(AppContext);
+  const {onAddToCart} = useContext(AppContext);
+  const {onAddToFavorites} = useContext(AppContext);
 
   const handleOnPlus = () => {
-    onClickPlus({id, name, url, price});
-    setIsAdded(!isAdded);
-  }
+    onAddToCart({id, name, url, price});
+
+  };
 
   const handleOnFavorites = () => {
-    onClickFavorite({id, name, url, price})
-    setIsFavorite(!isFavorite);
-  }
+    onAddToFavorites({id, name, url, price});
+  };
 
   return (
     <div className='card'>
@@ -52,7 +51,7 @@ function Card({
           :
           <>
             <div className='favorite' onClick={handleOnFavorites}>
-              <img src={isFavorite ? '/img/likePink.svg' : '/img/likeGrey2.svg'}
+              <img src={isAddedToFav(item) ? '/img/likePink.svg' : '/img/likeGrey2.svg'}
                    alt="likeGrey" width={30} height={30}/>
             </div>
             <img width={133} height={112} src={url} alt={'1'}/>
@@ -66,7 +65,7 @@ function Card({
               </div>
               <div>
                 <img onClick={handleOnPlus}
-                     src={isAdded ? '/img/btnChecked.svg' : '/img/btnUnchecked.svg'}
+                     src={isAddedToCard(item) ? '/img/btnChecked.svg' : '/img/btnUnchecked.svg'}
                      alt="plus"/>
               </div>
             </div>

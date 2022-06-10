@@ -1,17 +1,14 @@
+import React, {useContext} from 'react';
+import {AppContext} from "../../App";
 import Card from "../Card/Card";
-import React from 'react';
 
-function Home({
-                items,
-                favorites,
-                cartItems,
-                searchValue,
-                onChangeSearchInput,
-                setSearchValue,
-                onAddToFavorites,
-                onAddToCart,
-                isLoading,
-              }) {
+function Home() {
+
+  const {items} = useContext(AppContext);
+  const {searchValue} = useContext(AppContext);
+  const {setSearchValue} = useContext(AppContext);
+  const {onChangeSearchInput} = useContext(AppContext);
+  const {isLoading} = useContext(AppContext);
 
   const renderItems = () => {
     const filteredItems = items.filter(item =>
@@ -19,27 +16,21 @@ function Home({
         .toLowerCase()
         .includes(searchValue.toLowerCase()));
     return (
-      isLoading ? Array(10).fill({}) : filteredItems)
-      // filteredItems
-      .map((item,index) => (
+      isLoading ? Array(12).fill({}) : filteredItems)
+      .map((item, index) => (
           <
             Card
-            key={item.key||index}
+            item={item}
+            key={item.key || index}
             id={item.key}
             url={item.imageURL}
             name={item.name}
             price={item.price}
-            added={cartItems.some(obj => obj.id === item.key)}
-            favorited={favorites.some(obj => obj.id === item.key)}
-            onClickFavorite={(obj) => onAddToFavorites(obj)}
-            onClickPlus={(obj) => onAddToCart(obj)}
             loading={isLoading}
           />
-
         )
       );
   }
-
 
   return (
     <div className="content">

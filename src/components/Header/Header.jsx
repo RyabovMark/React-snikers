@@ -1,10 +1,12 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import './Header.scss';
 import {Link} from "react-router-dom";
+import {AppContext} from "../../App";
 import priceTab from "../Card/Card";
 
+function Header() {
+  const {onOpen} = useContext(AppContext);
 
-function Header(props) {
   return (
     <header>
       <Link to="/">
@@ -17,7 +19,7 @@ function Header(props) {
         </div>
       </Link>
       <ul className='headerTotal'>
-        <li onClick={props.onClickCart}>
+        <li onClick={onOpen}>
           <img alt={'shopCard'} width={20} height={20}
                src='/img/shopCard.svg'/>
           <span>1205 руб.</span>
