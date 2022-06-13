@@ -3,11 +3,6 @@ import ContentLoader from "react-content-loader";
 import "./Card.scss";
 import {AppContext} from "../../App";
 
-function priceTab(price) {
-  const strFrm = new Intl.NumberFormat('ru-Ru').format(price);
-  return `${strFrm} руб.`;
-}
-
 function Card({
                 item,
                 id,
@@ -21,6 +16,7 @@ function Card({
   const {isAddedToFav} = useContext(AppContext);
   const {onAddToCart} = useContext(AppContext);
   const {onAddToFavorites} = useContext(AppContext);
+  const {priceRef} = useContext(AppContext);
 
   const handleOnPlus = () => {
     onAddToCart({id, name, url, price});
@@ -50,7 +46,7 @@ function Card({
           </ContentLoader>
           :
           <>
-            <div className='favorite' onClick={handleOnFavorites}>
+            <div className='favorite' onClick={()=>handleOnFavorites()}>
               <img src={isAddedToFav(item) ? '/img/likePink.svg' : '/img/likeGrey2.svg'}
                    alt="likeGrey" width={30} height={30}/>
             </div>
@@ -61,10 +57,10 @@ function Card({
             <div className='cardFooter'>
               <div className='total'>
                 <span className='price'>Цена:</span>
-                <b className='cost'>{priceTab(price)}</b>
+                <b className='cost'>{priceRef(price)}</b>
               </div>
               <div>
-                <img onClick={handleOnPlus}
+                <img onClick={()=>handleOnPlus()}
                      src={isAddedToCard(item) ? '/img/btnChecked.svg' : '/img/btnUnchecked.svg'}
                      alt="plus"/>
               </div>
@@ -76,5 +72,5 @@ function Card({
 }
 
 export default Card;
-export {priceTab}
+
 

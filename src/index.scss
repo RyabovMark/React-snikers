@@ -10,58 +10,77 @@ body {
   font-family: 'Inter', system-ui;
 }
 
-.wrapper {
-  background: #FFFFFF;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.04);
-  border-radius: 20px;
-  max-width: 1080px;
-  margin: 50px auto;
+#root{
+  position: relative;
+  padding: 50px;
+}
 
+  .wrapper {
+    background: #FFFFFF;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.04);
+    border-radius: 20px;
+    max-width: 1080px;
+    margin: 0 auto;
 
-  .content {
-    margin: 0;
-    padding: 40px;
+    .content {
+      margin: 0;
+      padding: 0 40px 40px 40px;
 
-    .information {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 40px;
-
-      h1 {
-        margin: 0;
-      }
-
-      .searchBlock {
+      .information {
         display: flex;
-        border: 1px solid #F3F3F3;
-        border-radius: 10px;
-        padding: 0 15px;
-        position: relative;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        align-items: center;
+        margin-bottom: 40px;
 
-        .clear {
-          position: absolute;
-          right: 5px;
-          width: 25px;
-          height: 25px;
-          top: 10px;
-          cursor: pointer;
+        .banner {
+          flex: 0 1 100%;
+          margin: 40px 0;
+
+          img {
+            max-width: 100%;
+          }
         }
 
-        input {
-          width: 200px;
-          border: none;
-          padding: 13px;
-          font-size: 16px;
+        .homeHeader {
+          width: 100%;
+          display: flex;
+          justify-content: space-between;
+
+          h1 {
+            margin: 0;
+          }
+
+          .searchBlock {
+            display: flex;
+            border: 1px solid #F3F3F3;
+            border-radius: 10px;
+            padding: 0 15px;
+            position: relative;
+
+            .clear {
+              position: absolute;
+              right: 5px;
+              width: 25px;
+              height: 25px;
+              top: 10px;
+              cursor: pointer;
+            }
+
+            input {
+              width: 200px;
+              border: none;
+              padding: 13px;
+              font-size: 16px;
+            }
+          }
         }
       }
-    }
 
-    .sneakers {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
+      .sneakers {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+      }
     }
   }
-
-}

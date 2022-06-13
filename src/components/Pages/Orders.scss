@@ -1,0 +1,29 @@
+.content {
+.information{
+  margin-left: 10px;
+}
+  .orderList {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-items: stretch;
+
+    .cartItem {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      flex: 0 1 19%;
+      border: 1px solid #F3F3F3;
+      border-radius: 10px;
+      margin: 10px;
+      padding: 15px;
+      box-sizing: content-box;
+
+      img {
+        margin: 0 auto;
+        width: 120px;
+        height: 120px;
+      }
+    }
+  }
+}

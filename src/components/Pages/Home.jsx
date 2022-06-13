@@ -35,15 +35,20 @@ function Home() {
   return (
     <div className="content">
       <div className="information">
-        <h1>{searchValue ? `Поиск по запросу: ${searchValue}` : 'Все кроссовки'}</h1>
-        <div className='searchBlock'>
-          <img src="/img/search.svg" alt="search"/>
-          {searchValue &&
-            <img onClick={() => setSearchValue('')} className='clear'
-                 src="/img/delete.svg"
-                 alt="clear"/>}
-          <input onChange={onChangeSearchInput} value={searchValue}
-                 placeholder="Поиск..."/>
+        <div className="banner">
+          <img src="/img/banner.png" alt="banner"/>
+        </div>
+        <div className="homeHeader">
+          <h1>{searchValue ? `Поиск по запросу: ${searchValue}` : 'Все кроссовки'}</h1>
+          <div className='searchBlock'>
+            <img src="/img/search.svg" alt="search"/>
+            {searchValue &&
+              <img onClick={() => setSearchValue('')} className='clear'
+                   src="/img/delete.svg"
+                   alt="clear"/>}
+            <input onChange={onChangeSearchInput} value={searchValue}
+                   placeholder="Поиск..."/>
+          </div>
         </div>
       </div>
       <div className="sneakers">

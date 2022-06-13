@@ -1,10 +1,27 @@
-.favoritesList{
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  .card{
-    .favorite{
+.content {
+  .information{
+    h1{
+      margin-left: 15px;
+    }
+  }
+  .favoritesList {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
 
+    .card {
+      position: relative;
+      display: flex;
+      flex: 0 1 17%;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 220px;
+      padding: 5px 20px 35px 20px;
+      border: 1px solid #F3F3F3;
+      border-radius: 40px;
+      margin: 18px;
+      transition: 0.2s ease-in-out;
     }
   }
 }

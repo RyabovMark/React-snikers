@@ -1,7 +1,7 @@
 .card {
   position: relative;
   display: flex;
-  flex: 0 1 25%;
+  flex: 0 1 17%;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
@@ -9,8 +9,8 @@
   padding: 5px 20px 35px 20px;
   border: 1px solid #F3F3F3;
   border-radius: 40px;
-  margin: 0 0 40px 0;
   transition: 0.2s ease-in-out;
+  margin: 18px;;
 
   &:hover {
     box-shadow: 0 20px 35px rgba(0, 0, 0, 0.08);
@@ -22,7 +22,6 @@
     cursor: pointer;
     top: 15px;
     left: 25px;
-
   }
 
   h5 {

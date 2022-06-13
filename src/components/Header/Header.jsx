@@ -2,10 +2,11 @@ import React, {useContext} from 'react';
 import './Header.scss';
 import {Link} from "react-router-dom";
 import {AppContext} from "../../App";
-import priceTab from "../Card/Card";
 
 function Header() {
   const {onOpen} = useContext(AppContext);
+  const {priceRef} = useContext(AppContext);
+  const {sumPrice} = useContext(AppContext);
 
   return (
     <header>
@@ -19,10 +20,10 @@ function Header() {
         </div>
       </Link>
       <ul className='headerTotal'>
-        <li onClick={onOpen}>
+        <li onClick={()=>onOpen()}>
           <img alt={'shopCard'} width={20} height={20}
                src='/img/shopCard.svg'/>
-          <span>1205 руб.</span>
+          {sumPrice ? <span>{priceRef()}</span> : null}
         </li>
         <li>
           <Link to="/favorites">
@@ -31,8 +32,9 @@ function Header() {
           </Link>
         </li>
         <li>
-          <Link to="/orders"/>
-          <img alt={'userIcon'} width={20} height={20} src='/img/user.svg'/>
+          <Link to="/orders">
+            <img alt={'userIcon'} width={20} height={20} src='/img/user.svg'/>
+          </Link>
         </li>
       </ul>
     </header>
